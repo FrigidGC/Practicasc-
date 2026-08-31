@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 
 // ================================================================
 // ACTIVIDAD: LISTA SIMPLE, DOBLE Y CIRCULAR
@@ -46,6 +47,7 @@ public class ListaSimple
             Tail = nuevo;
         }
     }
+
 
     public void AgregarEnPosicion(int valor, int posicion)
     {

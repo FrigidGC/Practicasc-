@@ -77,6 +77,13 @@ public class ListaSimple
         NodoSimple atindex = new NodoSimple(valor);   //crea el nuevo nodo a anadir
         atindex.siguiente = Head;                     //Apunta al antiguo Head como el siguiente
         Head = atindex;                               //Pone atindex como el Head 
+        if (Tail == null)
+        {
+            Tail = atindex;
+        }
+
+        return;
+
         }
         NodoSimple actual = Head;
         for (int i = 0;//declara i como indice
@@ -88,19 +95,19 @@ public class ListaSimple
                 Console.WriteLine("El índice está fuera de los límites de la lista.");
                 return;
             }
-            actual = actual.Siguiente; //Sigue al siguiente nodo, actual al ser una variable de NodoSimple, no cambia nada dentro de la lista
+            actual = actual.siguiente; //Sigue al siguiente nodo, actual al ser una variable de NodoSimple, no cambia nada dentro de la lista
             //Este "for" basicamente recorrio toda la lista hasta index-2 para verificar que existiera espacio antes de donde se va a agregar
             //de esta forma evitando errores sabiendo que va a tener un nodo que lo referencie anteiormente
         }
         //En este punto te encuentras aqui !
         //                                 v
         //                      actual<->nuevo<->siguiente(puede ser null)
-        NodoSimple atindex = new NodoSimple(valor);
-        atindex.siguiente = actual.siguiente;
-        actual.suguiente = atindex;
-        if (atindex.siguiente == null)
+        NodoSimple agregar = new NodoSimple(valor); //se usaria atindex pero a C# no les gustan 2 variables con el mismo nombre
+        agregar.siguiente = actual.siguiente;//se agregar el siguiente del actual (el que esta antes del indice) al nuevo nodo
+        actual.siguiente = agregar; //se referencia el actual al nuevo nodo (formalmente atindex)
+        if (agregar.siguiente == null)
         {
-            Tail = atindex;
+            Tail = agregar;
         }
     }
 
