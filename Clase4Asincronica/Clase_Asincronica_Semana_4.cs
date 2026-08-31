@@ -2,9 +2,6 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 
-
-
-
 public class HelloWorld
 {
     public static void Main(string[] args)
@@ -48,7 +45,7 @@ public class ListaSimple
     Tail = null;
     }
 
-    public void Agregar(int valor) //Metodo en lista Simple que agrega Nodos
+    public void AddLast(int valor) //Metodo en lista Simple que agrega Nodos
     {
     NodoSimple nuevo = new NodoSimple(valor);
     if (Head == null) //Si es el primer nodo en crearse lo asigna como Head
@@ -110,7 +107,14 @@ public class ListaSimple
             Tail = agregar;
         }
     }
-
+    public void RemoveById(int valor, int index)
+    {
+        if (index == 0)
+        {
+            Head = Head.siguiente; //Inserta el que le sigue al head al head, de esta forma eliminando el primer nodo 
+            
+        }
+    }
 }
 
 
