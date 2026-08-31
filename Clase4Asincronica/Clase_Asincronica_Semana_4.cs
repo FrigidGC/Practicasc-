@@ -92,7 +92,16 @@ public class ListaSimple
             //Este "for" basicamente recorrio toda la lista hasta index-2 para verificar que existiera espacio antes de donde se va a agregar
             //de esta forma evitando errores sabiendo que va a tener un nodo que lo referencie anteiormente
         }
-
+        //En este punto te encuentras aqui !
+        //                                 v
+        //                      actual<->nuevo<->siguiente(puede ser null)
+        NodoSimple atindex = new NodoSimple(valor);
+        atindex.siguiente = actual.siguiente;
+        actual.suguiente = atindex;
+        if (atindex.siguiente == null)
+        {
+            Tail = atindex;
+        }
     }
 
 }
