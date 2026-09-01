@@ -12,7 +12,7 @@ public class HelloWorld
         Thread.Sleep(0);
 
 
-        Console.WriteLine ("");
+        Console.WriteLine ("Yes");
 
 
         // 3. Calculate the elapsed time
@@ -107,12 +107,35 @@ public class ListaSimple
             Tail = agregar;
         }
     }
-    public void RemoveById(int valor, int index)
+    public void RemoveById(int index)
     {
         if (index == 0)
         {
-            Head = Head.siguiente; //Inserta el que le sigue al head al head, de esta forma eliminando el primer nodo 
-            
+            Head = Head.siguiente; //Remplaza el Head por su siguiente
+            return;
+        }
+        NodoSimple elim = Head;
+        for (int i = 0;
+             i < index -1;
+             i++          )
+        {
+            if (elim == null)
+            {
+                Console.WriteLine("El índice está fuera de los límites de la lista.");
+                return;
+            }
+            elim = elim.siguiente;
+        }
+        if (elim.siguiente == null)
+        {
+            Console.WriteLine("El nodo a eliminar no existe");
+            return;
+        }
+
+        elim.siguiente = elim.siguiente.siguiente;
+        if (elim.siguiente == null)
+        {
+            Tail = elim;
         }
     }
 }
